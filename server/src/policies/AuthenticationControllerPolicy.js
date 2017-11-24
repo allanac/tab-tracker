@@ -1,3 +1,4 @@
+// Include Joi Framework for validating 
 const Joi = require('joi')
 
 module.exports = {
