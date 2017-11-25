@@ -7,20 +7,23 @@
         </v-toolbar>
 
       <div class="pl-4 pr-4 pb-2 pt-2">
-        <v-text-field
-          label ="Email"
-          v-model="email"
-          placeholder="email">
-        </v-text-field>
+        <form name="tab-tracker-form" autocomplete="off">
+          <v-text-field
+            label ="Email"
+            v-model="email"
+            placeholder="email">
+          </v-text-field>
 
-        <br>
+          <br>
 
-        <v-text-field
-          label="Password"
-          v-model ="password"
-          placeholder="password">
-        </v-text-field>
-
+          <v-text-field
+            label="Password"
+            type="password"
+            v-model ="password"
+            autocomplete="new-password"
+            placeholder="password">
+          </v-text-field>
+        </form>
         <br>
 
         <div class="error" v-html="error"/>
@@ -51,10 +54,12 @@
     methods: {
       async register () {
         try {
-          await AuthenticationService.register({
+          const response = await AuthenticationService.register({
             email: this.email,
             password: this.password
           })
+          this.$store.dispatch('setToken', response.data.token)
+          this.$store.dispatch('setUser', response.data.token)
         } catch (error) {
           //        -------                  our variable defined
           // --------- [ dta rtrnd frm axios] |
