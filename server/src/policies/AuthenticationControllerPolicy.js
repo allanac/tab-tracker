@@ -1,4 +1,4 @@
-// Include Joi Framework for validating 
+// Include Joi Framework for validating
 const Joi = require('joi')
 
 module.exports = {
@@ -10,8 +10,9 @@ module.exports = {
       )
     }
 
-    const {error,value} = Joi.validate(req.body, schema)
-    if(error){
+    const {error} = Joi.validate(req.body, schema)
+
+    if (error) {
       switch (error.details[0].context.key){
 
         case 'email':

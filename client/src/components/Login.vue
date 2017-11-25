@@ -8,17 +8,17 @@
 
       <div class="pl-4 pr-4 pb-2 pt-2">
         <v-text-field
-          label ="Email"
-          v-model="email"
-          placeholder="email">
+          label="Email"
+          type="email"
+          v-model="email">
         </v-text-field>
 
         <br>
 
         <v-text-field
           label="Password"
-          v-model ="password"
-          placeholder="password">
+          type ="password"
+          v-model ="password">
         </v-text-field>
 
         <br>
@@ -40,6 +40,7 @@
 
 <script>
   import AuthenticationService from '@/services/AuthenticationService'
+
   export default {
     data () {
       return {
@@ -56,7 +57,7 @@
             password: this.password
           })
           this.$store.dispatch('setToken', response.data.token)
-          this.$store.dispatch('setUser', response.data.token)
+          this.$store.dispatch('setUser', response.data.user)
         } catch (error) {
           //        -------             our variable defined
           // --------- [ dta rtrnd frm axios] |
