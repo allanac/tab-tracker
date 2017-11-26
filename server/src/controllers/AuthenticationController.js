@@ -29,11 +29,13 @@ module.exports = {
   async login (req, res) {
     try {
       const {email, password} = req.body
+      console.log('Im on line 32 and grabbed email, password ---->', email, password);
       const user = await User.findOne({
         where: {
           email: email
         }
       })
+      console.log('This is line 38, user info----> ', user)
       // No user in DB
       if (!user) {
         return res.status(403).send({
@@ -42,6 +44,10 @@ module.exports = {
       }
       // check password
       const isPasswordValid = await user.comparePassword(password)
+      console.log('PAssword ------> ', password)
+      console.log('Stored password -----> ', user.password)
+      console.log('wtf ', user.comparePassword(password));
+      console.log('isPasswordValid------> ', isPasswordValid)
 
       if (!isPasswordValid) {
         return res.status(403).send({
