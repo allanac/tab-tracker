@@ -29,13 +29,11 @@ module.exports = {
   async login (req, res) {
     try {
       const {email, password} = req.body
-      console.log('Im on line 32 and grabbed email, password ---->', email, password);
       const user = await User.findOne({
         where: {
           email: email
         }
       })
-      console.log('This is line 38, user info----> ', user)
       // No user in DB
       if (!user) {
         return res.status(403).send({

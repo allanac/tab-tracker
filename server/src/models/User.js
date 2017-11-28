@@ -10,7 +10,7 @@ function hashPassword (user, options) {
 
   return bcrypt
     .genSaltAsync(SALT_FACTOR)
-    .then(salt => bcrypt.hashAsync(user.password, salt))
+    .then(salt => bcrypt.hashAsync(user.password, salt, null))
     .then(hash => {
       user.setDataValue('password', hash)
     })
@@ -37,5 +37,4 @@ module.exports = (sequelize, DataTypes) => {
 
   }
   return User
-  console.log('This is the returned user---->', User)
 }
