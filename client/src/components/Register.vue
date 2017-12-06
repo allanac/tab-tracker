@@ -8,6 +8,7 @@
 
       <div class="pl-4 pr-4 pb-2 pt-2">
         <form name="tab-tracker-form" autocomplete="off">
+
           <v-text-field
             label ="Email"
             v-model="email"

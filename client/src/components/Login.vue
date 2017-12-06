@@ -1,6 +1,7 @@
 <template>
   <v-layout column>
     <v-flex xs4 offset-xs4>
+
       <div class="white elevation-2">
         <v-toolbar flat dense color="cyan" class="white--text">
           <v-toolbar-title> Login </v-toolbar-title>

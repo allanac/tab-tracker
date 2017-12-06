@@ -2,7 +2,6 @@
   <div id="app">
     <v-app>
       <page-header></page-header>
-
       <main>
         <v-container fluid>
           <router-view></router-view>
