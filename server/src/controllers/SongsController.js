@@ -58,7 +58,9 @@ module.exports = {
     }
   },
   async put (req, res){
-    
+    try {
+      await Song.update(req.body)
+    }
   }
 
 }
